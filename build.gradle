@@ -1,0 +1,36 @@
+plugins {
+    id 'groovy'
+}
+
+group 'somecompany'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+  maven { url 'https://repo.jenkins-ci.org/releases/' }
+}
+
+dependencies {
+    implementation('org.codehaus.groovy:groovy-all:2.4.6')
+    implementation('com.cloudbees:groovy-cps:1.12')
+    implementation('commons-io:commons-io:2.5')
+    implementation('org.apache.commons:commons-lang3:3.5')
+    testImplementation('com.lesfurets:jenkins-pipeline-unit:1.8')
+    testImplementation('junit:junit:4.11')
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src', 'vars']
+        }
+    }
+    test {
+        groovy {
+            srcDirs = ['src', 'test']
+        }
+    }
+}
