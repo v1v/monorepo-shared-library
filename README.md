@@ -59,13 +59,13 @@ This is an example of a shared library for the Jenkins pipelines based on:
 1. Build docker image by running:
 
    ```
-   make build
+   make -C local build
    ```
 
 2. Start the local Jenkins master service by running:
 
    ```
-   make start
+   make -C local make start
    ```
 
 3. Browse to <http://localhost:8080> in your web browser.
@@ -74,24 +74,18 @@ This is an example of a shared library for the Jenkins pipelines based on:
 
 You can enable your own machine to become an agent, as simple as:
 
-1. Browse to <http://localhost:8080/computer/local/> in your web browser.
+1. Run in your terminal:
 
-2. Download <http://localhost:8080/jnlpJars/agent.jar>
-
-3. Run in your terminal:
-
-   ```
-   java -jar agent.jar -jnlpUrl http://localhost:8080/computer/local/slave-agent.jnlp
-   ```
-   NOTE: Java is required.
+    ```
+    make -C local start-local-worker
+    ```
+    NOTE: Java is required.
 
 #### Enable the linux vagrant worker
 
-  ```bash
-  cd local/workers/linux
-  vagrant up --provision
-  open http://localhost:8080
-  ```
+    ```bash
+    make -C local start-linux-worker
+    ```
 
 #### Customise what plugins are installed
 
