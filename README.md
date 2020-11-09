@@ -26,24 +26,33 @@ This is an example of a shared library for the Jenkins pipelines based on:
 ```
 (root)
 +- src                             # Groovy source files
-|   +- org
-|       +- v1v
-|           +- Bar.groovy          # for org.v1v.Bar class
+|   +- main
+|       +- groovy
+|           +- Bar.groovy          # for Bar class
 |   +- test
 |       +- groovy
 |           +- FooStepTest.groovy  # Tests for the foo step
+|       +- resources               # resource files for the tests
+|
 +- vars
 |   +- foo.groovy                  # for global 'foo' variable
 |   +- foo.txt                     # help for 'foo' variable
+|
 +- resources                       # resource files (external libraries only)
 |   +- org
 |       +- v1v
 |           +- bar.json            # static helper data for org.foo.Bar
+|
 +- local                           # to enable a jenkins instance with this library
 |   +- configs
-|       +- jenkins.yaml
+|   |   +- jenkins.yaml
+|   |   +- plugins.txt
+|   +- workers
+|       +- linux
+|           +- Vagrantfile
 |   +- docker-compose.yml
 |   +- Dockerfile
+|   +- Makefile
 |
 ```
 
@@ -58,15 +67,15 @@ This is an example of a shared library for the Jenkins pipelines based on:
 
 1. Build docker image by running:
 
-   ```
-   make -C local build
-   ```
+```bash
+  make -C local build
+```
 
 2. Start the local Jenkins master service by running:
 
-   ```
-   make -C local make start
-   ```
+```bash
+  make -C local make start
+```
 
 3. Browse to <http://localhost:8080> in your web browser.
 
@@ -76,16 +85,16 @@ You can enable your own machine to become an agent, as simple as:
 
 1. Run in your terminal:
 
-    ```
-    make -C local start-local-worker
-    ```
+```bash
+  make -C local start-local-worker
+```
     NOTE: Java is required.
 
 #### Enable the linux vagrant worker
 
-    ```bash
-    make -C local start-linux-worker
-    ```
+```bash
+  make -C local start-linux-worker
+```
 
 #### Customise what plugins are installed
 
