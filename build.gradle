@@ -28,6 +28,7 @@ dependencies {
   implementation('org.apache.commons:commons-lang3:3.5')
   testImplementation('com.lesfurets:jenkins-pipeline-unit:1.8')
   testImplementation('junit:junit:4.11')
+  testImplementation('org.spockframework:spock-core:1.2-groovy-2.4')
 }
 
 sourceSets {
