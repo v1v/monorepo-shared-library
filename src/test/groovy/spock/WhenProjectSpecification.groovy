@@ -1,8 +1,8 @@
 import base.SpockTestBase
 
-class WhenSpecification extends SpockTestBase {
+class WhenProjectSpecification extends SpockTestBase {
 
-  def stepName = 'vars/when.groovy'
+  def stepName = 'vars/whenProject.groovy'
 
   def 'handling without any argument'() {
     given:

@@ -5,14 +5,14 @@ import static org.junit.Assert.assertFalse
 import static org.junit.Assert.assertTrue
 import mock.RunFunction
 
-class StageStepTests extends base.PipelineTestHelper {
+class StagesProjectStepTests extends base.PipelineTestHelper {
   def script
 
   @Override
   @Before
   void setUp() throws Exception {
     super.setUp()
-    script = loadScript('vars/stage.groovy')
+    script = loadScript('vars/stagesProject.groovy')
   }
 
   @Test

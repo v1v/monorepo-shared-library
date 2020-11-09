@@ -4,14 +4,14 @@ import org.junit.Test
 import static org.junit.Assert.assertFalse
 import static org.junit.Assert.assertTrue
 
-class WhenStepTests extends base.PipelineTestHelper {
+class WhenProjectStepTests extends base.PipelineTestHelper {
   def script
 
   @Override
   @Before
   void setUp() throws Exception {
     super.setUp()
-    script = loadScript('vars/when.groovy')
+    script = loadScript('vars/whenProject.groovy')
   }
 
   @Test
