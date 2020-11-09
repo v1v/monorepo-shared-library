@@ -1,3 +1,4 @@
+package base
 
 import com.lesfurets.jenkins.unit.declarative.DeclarativePipelineTest
 import static com.lesfurets.jenkins.unit.MethodCall.callArgsToString

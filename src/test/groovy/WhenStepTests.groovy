@@ -4,7 +4,7 @@ import org.junit.Test
 import static org.junit.Assert.assertFalse
 import static org.junit.Assert.assertTrue
 
-class WhenStepTests extends PipelineTestHelper {
+class WhenStepTests extends base.PipelineTestHelper {
   def script
 
   @Override
