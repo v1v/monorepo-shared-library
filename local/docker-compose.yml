@@ -1,0 +1,35 @@
+---
+version: "3.7"
+services:
+  jenkins:
+    build: .
+    container_name: jenkins-pipeline-library
+    environment:
+      CASC_JENKINS_CONFIG: /var/jenkins_home/casc_configs
+      JAVA_OPTS: >-
+        -Djenkins.install.runSetupWizard=false
+        -Dhudson.model.UsageStatistics.disabled=true
+    volumes:
+      - type: volume
+        source: jenkins_home_pipeline_library
+        target: /var/jenkins_home
+      - type: bind
+        source: ./configs/jenkins.yaml
+        target: /var/jenkins_home/casc_configs/jenkins.yaml
+        read_only: true
+      - type: bind
+        source: ../.
+        target: /var/pipeline-library
+        read_only: true
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      pipeline-library:
+
+volumes:
+  jenkins_home_pipeline_library:
+
+networks:
+  pipeline-library:
+    driver: bridge

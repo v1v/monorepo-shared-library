@@ -1,9 +1,17 @@
 plugins {
-    id 'groovy'
+  id 'groovy'
+  id 'idea'
 }
 
-group 'somecompany'
-version '1.0-SNAPSHOT'
+group 'org.v1v.jenkinsci.shared.mono'
+version '0.1-SNAPSHOT'
+
+idea {
+  module {
+    downloadJavadoc = true
+    downloadSources = true
+  }
+}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -14,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    implementation('org.codehaus.groovy:groovy-all:2.4.6')
+    implementation('org.codehaus.groovy:groovy-all:2.4.8')
     implementation('com.cloudbees:groovy-cps:1.12')
     implementation('commons-io:commons-io:2.5')
     implementation('org.apache.commons:commons-lang3:3.5')
@@ -26,6 +34,9 @@ sourceSets {
     main {
         groovy {
             srcDirs = ['src', 'vars']
+        }
+        resources {
+            srcDirs = ['resources']
         }
     }
     test {

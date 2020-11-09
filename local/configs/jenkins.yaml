@@ -1,0 +1,54 @@
+jenkins:
+  systemMessage: "Configured automatically with JCasC plugin"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  labelString: flyweight
+  mode: EXCLUSIVE
+  numExecutors: 5
+  remotingSecurity:
+    enabled: false
+  scmCheckoutRetryCount: 2
+  nodes:
+  - permanent:
+      labelString: "local"
+      launcher:
+        jnlp:
+          workDirSettings:
+            disabled: true
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+            workDirPath: "/tmp"
+      name: "local"
+      numExecutors: 1
+      remoteFS: "/tmp"
+      retentionStrategy: "always"
+
+unclassified:
+  location:
+    url: http://localhost:8080/
+  globalLibraries:
+    libraries:
+      - name: "shared-library"
+        defaultVersion: "current"
+        implicit: true
+        retriever:
+          legacySCM:
+            scm:
+              filesystem:
+                clearWorkspace: false
+                copyHidden: false
+                path: "/var/pipeline-library"
+                filterSettings:
+                  includeFilter: false
+                  selectors:
+                  - wildcard: "build/**"
+                  - wildcard: "local/**"
+                  - wildcard: "gradle/**"
+                  - wildcard: "gradle*"
+                  - wildcard: "*gradle"
+                  - wildcard: "*.md"
+jobs:
+  - file: "/var/pipeline-library/src/test/resources/folders/it.dsl"
+  - file: "/var/pipeline-library/src/test/resources/jobs/echo.dsl"
+  - file: "/var/pipeline-library/src/test/resources/jobs/myPipeline.dsl"
