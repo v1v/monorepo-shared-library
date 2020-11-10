@@ -20,6 +20,7 @@ This is an example of a shared library for the Jenkins pipelines based on:
 - Vagrant >= 2.2.4
 - VirtualBox >= 6
 - Java >= 8
+- [Ngrok](https://ngrok.com/)
 
 ## Layout
 
@@ -75,6 +76,22 @@ This is an example of a shared library for the Jenkins pipelines based on:
 ```
 
 4. Browse to <http://localhost:8080> in your web browser.
+
+5. Enable jenkins local instance to be publically accessible
+
+```bash
+  make -C local make public
+```
+
+Pick the https URL
+
+6. Configure webhooks automatically
+
+NOTE: in another shell
+
+```bash
+  USER_PASS=user:***** URL=<see_previous_point> make -C local make public
+```
 
 #### Enable the local agent
 

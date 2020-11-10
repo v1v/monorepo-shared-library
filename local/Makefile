@@ -1,5 +1,8 @@
 .DEFAULT_GOAL := start
 
+URL ?= https://703a685e5568.ngrok.io
+REPO ?= jenkins-monorepo
+ORG  ?= v1v
 .PHONY: build
 build:
 	@env docker-compose --file docker-compose.yml build
@@ -11,6 +14,18 @@ start:
 .PHONY: stop
 stop:
 	@env docker-compose --file docker-compose.yml stop
+
+.PHONY: ngrok
+public:
+	@ngrok http 8080
+
+.PHONY: create-webhook
+create-webhook:
+	@curl -u ${USER_PASS} \
+		-v \
+		-H "Content-Type: application/json" \
+		-d '{"name": "web", "active": true, "events": ["push", "issue_comment", "pull_request"], "config": {"url": "${URL}/github-webhook/", "content_type": "json"}}' \
+		https://api.github.com/repos/${ORG}/${REPO}/hooks
 
 .PHONY: start-local-worker
 start-local-worker:  ## Start the local worker
