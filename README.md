@@ -65,19 +65,21 @@ This is an example of a shared library for the Jenkins pipelines based on:
 
 ### How to test it within the local Jenkins instance
 
-1. Build docker image by running:
+1. Add your GH user and GH token each one in the file local/config/user and local/config/key
+
+2. Build docker image by running:
 
 ```bash
   make -C local build
 ```
 
-2. Start the local Jenkins master service by running:
+3. Start the local Jenkins master service by running:
 
 ```bash
   make -C local make start
 ```
 
-3. Browse to <http://localhost:8080> in your web browser.
+4. Browse to <http://localhost:8080> in your web browser.
 
 #### Enable the local agent
 
