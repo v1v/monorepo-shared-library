@@ -1,11 +1,9 @@
-import groovy.transform.Field
-
 /**
 * Given the YAML definition then it verifies if the project or stage should be enabled.
 */
 Boolean call(Map args = [:]){
-  def project = args.containsKey('project') ? args.project : error('when: project param is required')
-  def content = args.containsKey('content') ? args.content : error('when: content param is required')
+  def project = args.containsKey('project') ? args.project : error('whenProject: project param is required')
+  def content = args.containsKey('content') ? args.content : error('whenProject: content param is required')
   def description = args.get('description', '')
   def ret = false
 

@@ -1,15 +1,15 @@
 Map call(Map args = [:]){
-  def project = args.containsKey('project') ? args.project : error('beatsStages: project param is required')
-  def content = args.containsKey('content') ? args.content : error('beatsStages: content param is required')
-  def function = args.containsKey('function') ? args.function : error('beatsStages: function param is required')
-  def defaultNode = content.containsKey('platform') ? content.platform : error('beatsStages: platform entry in the content is required.')
+  def project = args.containsKey('project') ? args.project : error('stagesProject: project param is required')
+  def content = args.containsKey('content') ? args.content : error('stagesProject: content param is required')
+  def function = args.containsKey('function') ? args.function : error('stagesProject: function param is required')
+  def defaultNode = content.containsKey('platform') ? content.platform : error('stagesProject: platform entry in the content is required.')
 
   def mapOfStages = [:]
 
   content?.stages?.each { stageName, value ->
     def tempMapOfStages = [:]
     if (value.containsKey('when')) {
-      if (when(project: project, content: value.when, description: stageName)) {
+      if (whenProject(project: project, content: value.when, description: stageName)) {
         tempMapOfStages = generateStages(content: value, project: project, stageName: stageName, defaultNode: defaultNode, function: function)
       }
     } else {
