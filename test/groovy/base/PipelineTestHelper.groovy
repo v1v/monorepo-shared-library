@@ -26,8 +26,13 @@ class PipelineTestHelper extends DeclarativePipelineTest {
         })
 
         helper.registerAllowedMethod('isPR', {
-        def script = loadScript('vars/isPR.groovy')
-        return script.call()
+            def script = loadScript('vars/isPR.groovy')
+            return script.call()
+        })
+
+        helper.registerAllowedMethod('whenProject', [Map.class], { m ->
+            def script = loadScript('vars/whenProject.groovy')
+            return script.call(m)
         })
     }
 

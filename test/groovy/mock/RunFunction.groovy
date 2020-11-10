@@ -3,7 +3,7 @@ package mock
 /**
  * Mock class for the monorepo
  */
-class RunFunction extends Function {
+class RunFunction extends mono.Function {
 
     public RunFunction(Map args = [:]){
         super(args)

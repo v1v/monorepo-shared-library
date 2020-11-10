@@ -26,23 +26,18 @@ This is an example of a shared library for the Jenkins pipelines based on:
 ```
 (root)
 +- src                             # Groovy source files
-|   +- main
-|       +- groovy
-|           +- Bar.groovy          # for Bar class
-|   +- test
-|       +- groovy
-|           +- FooStepTest.groovy  # Tests for the foo step
-|       +- resources               # resource files for the tests
-|
+|   +- Bar.groovy                  # for Bar class
++- test
+|   +- groovy
+|       +- FooStepTest.groovy      # Tests for the foo step
+|   +- resources                   # resource files for the tests
 +- vars
 |   +- foo.groovy                  # for global 'foo' variable
 |   +- foo.txt                     # help for 'foo' variable
-|
 +- resources                       # resource files (external libraries only)
 |   +- org
 |       +- v1v
 |           +- bar.json            # static helper data for org.foo.Bar
-|
 +- local                           # to enable a jenkins instance with this library
 |   +- configs
 |   |   +- jenkins.yaml

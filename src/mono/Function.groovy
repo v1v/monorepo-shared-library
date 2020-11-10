@@ -1,8 +1,9 @@
+package mono
 
 /**
   Base class to implement specific functions for the monorepo pipeline.
-*/Function
-class MyFunction {
+*/
+class Function {
 
   /** object to access to pipeline steps */
   public steps

@@ -103,7 +103,7 @@ class StagesProjectStepTests extends base.PipelineTestHelper {
 
   @Test
   void test_multiple_when_without_match() throws Exception {
-    helper.registerAllowedMethod('when', [Map.class], {return false})
+    helper.registerAllowedMethod('whenProject', [Map.class], {return false})
     def ret = script.call(project: 'foo', content: [
       "platform" : [ "label-1 && label-2" ],
       "stages": [
@@ -131,7 +131,7 @@ class StagesProjectStepTests extends base.PipelineTestHelper {
 
   @Test
   void test_multiple_when_with_match() throws Exception {
-    helper.registerAllowedMethod('when', [Map.class], { return true })
+    helper.registerAllowedMethod('whenProject', [Map.class], { return true })
     def ret = script.call(project: 'foo', content: [
       "platform" : [ "label-1 && label-2" ],
       "stages": [
