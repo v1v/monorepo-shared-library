@@ -24,6 +24,18 @@ jenkins:
       remoteFS: "/tmp"
       retentionStrategy: "always"
 
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              ## see https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/secrets.adoc#using-properties-file
+              description: GitHub user @${readFile:/run/secrets/user} User + Personal Access Token
+              id: UserAndToken
+              password: ${readFile:/run/secrets/key}
+              scope: GLOBAL
+              username: ${readFile:/run/secrets/user}
+
 unclassified:
   location:
     url: http://localhost:8080/
@@ -51,4 +63,5 @@ unclassified:
 jobs:
   - file: "/var/pipeline-library/src/test/resources/folders/it.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/echo.dsl"
+  - file: "/var/pipeline-library/src/test/resources/jobs/monorepo.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/myPipeline.dsl"

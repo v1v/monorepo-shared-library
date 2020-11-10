@@ -1,3 +1,4 @@
+ansicolor
 blueocean
 cloudbees-folder
 configuration-as-code
@@ -5,8 +6,11 @@ git
 filesystem_scm
 jdk-tool
 job-dsl
+pipeline-github
 pipeline-model-definition
+pipeline-utility-steps
 swarm
+timestamper
 workflow-aggregator
 workflow-cps
 workflow-cps-global-lib

@@ -21,6 +21,15 @@ services:
         source: ../.
         target: /var/pipeline-library
         read_only: true
+      - type: bind
+        source: ./configs/key
+        target: /run/secrets/key
+        read_only: true
+      - type: bind
+        source: ./configs/user
+        target: /run/secrets/user
+        read_only: true
+
     ports:
       - "8080:8080"
       - "50000:50000"
