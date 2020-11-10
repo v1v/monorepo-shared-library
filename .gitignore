@@ -4,3 +4,5 @@ agent.jar
 local.*
 local/configs/key
 local/configs/user
+pom.xml
+target/
