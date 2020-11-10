@@ -11,7 +11,7 @@ jenkins:
   scmCheckoutRetryCount: 2
   nodes:
   - permanent:
-      labelString: "local linux immutable"
+      labelString: "local linux immutable windows windows-2016 windows-2019 macosx"
       launcher:
         jnlp:
           workDirSettings:
@@ -20,7 +20,7 @@ jenkins:
             internalDir: "remoting"
             workDirPath: "/tmp"
       name: "local"
-      numExecutors: 5
+      numExecutors: 10
       remoteFS: "/tmp"
       retentionStrategy: "always"
 
