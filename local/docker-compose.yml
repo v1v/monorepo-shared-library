@@ -1,9 +1,9 @@
 ---
 version: "3.7"
 services:
-  jenkins:
+  jenkins-monorepo:
     build: .
-    container_name: jenkins-pipeline-library
+    container_name: jenkins-pipeline-library-monorepo
     environment:
       CASC_JENKINS_CONFIG: /var/jenkins_home/casc_configs
       JAVA_OPTS: >-
@@ -11,7 +11,7 @@ services:
         -Dhudson.model.UsageStatistics.disabled=true
     volumes:
       - type: volume
-        source: jenkins_home_pipeline_library
+        source: jenkins_home_pipeline_library_monorepo
         target: /var/jenkins_home
       - type: bind
         source: ./configs/jenkins.yaml
@@ -34,11 +34,11 @@ services:
       - "8080:8080"
       - "50000:50000"
     networks:
-      pipeline-library:
+      pipeline-library_monorepo:
 
 volumes:
-  jenkins_home_pipeline_library:
+  jenkins_home_pipeline_library_monorepo:
 
 networks:
-  pipeline-library:
+  pipeline-library_monorepo:
     driver: bridge
