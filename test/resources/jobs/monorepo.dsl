@@ -1,4 +1,4 @@
-NAME = 'it/monorepo'
+NAME = 'monorepo'
 multibranchPipelineJob(NAME) {
   branchSources {
     factory {

@@ -1,4 +1,4 @@
-NAME = 'it/myPipeline'
+NAME = 'myPipeline'
 DSL = '''myPipeline()'''
 
 pipelineJob(NAME) {

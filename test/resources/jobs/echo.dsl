@@ -1,4 +1,4 @@
-NAME = 'it/echo'
+NAME = 'echo'
 DSL = '''pipeline {
   agent any
   stages {

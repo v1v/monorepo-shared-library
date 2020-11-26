@@ -61,7 +61,6 @@ unclassified:
                   - wildcard: "*gradle"
                   - wildcard: "*.md"
 jobs:
-  - file: "/var/pipeline-library/src/test/resources/folders/it.dsl"
-  - file: "/var/pipeline-library/src/test/resources/jobs/echo.dsl"
-  - file: "/var/pipeline-library/src/test/resources/jobs/monorepo.dsl"
-  - file: "/var/pipeline-library/src/test/resources/jobs/myPipeline.dsl"
+  - file: "/var/pipeline-library/test/resources/jobs/echo.dsl"
+  - file: "/var/pipeline-library/test/resources/jobs/monorepo.dsl"
+  - file: "/var/pipeline-library/test/resources/jobs/myPipeline.dsl"
