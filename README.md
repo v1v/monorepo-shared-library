@@ -60,7 +60,7 @@ This is an example of a shared library for the Jenkins pipelines based on:
 
 ### How to test it within the local Jenkins instance
 
-1. Add your GH user and GH token each one in the file local/config/user and local/config/key
+1. Add your GitHub user and GitHub token each one in the file `local/configs/user` and `local/configs/key`
 
 2. Build docker image by running:
 
@@ -89,9 +89,8 @@ Pick the https URL
 NOTE: in another shell
 
 ```bash
-  USER_PASS=user:***** URL=<see_previous_point> make -C local make public
+  USER_PASS="$(cat local/configs/user):$(cat local/configs/key)" URL=<see_previous_point> make -C local make public
 ```
-
 #### Enable the local agent
 
 You can enable your own machine to become an agent, as simple as:
