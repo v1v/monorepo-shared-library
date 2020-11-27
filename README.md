@@ -10,7 +10,7 @@ This is an example of a shared library for the Jenkins pipelines based on:
 - [JobDSL](https://github.com/jenkinsci/job-dsl-plugin/wiki) to configure the pipelines to test the steps.
 - [JenkinsUnitPipeline](https://github.com/jenkinsci/JenkinsPipelineUnit) to test the shared library steps.
 - [Spock](http://spockframework.org/spock/docs/1.0/introduction.html) to test the shared library steps with some specifications approach.
-- [Gradle](https://docs.gradle.org/current/userguide/userguide.html) to orchestrate the build/tests of this library.
+- [Maven](https://maven.apache.org/) to orchestrate the build/tests of this library.
 - [Vagrant](https://www.vagrantup.com/docs/index.html) and [VirtualBox](https://www.virtualbox.org/wiki/Documentation) to spin up jenkins agents using the Swarm connection.
 
 ## System Requirements
@@ -55,8 +55,7 @@ This is an example of a shared library for the Jenkins pipelines based on:
 ## How to test it
 
 ```bash
-  ./gradlew clean test
-  open build/reports/tests/test/index.html
+  ./mvnw clean test
 ```
 
 ### How to test it within the local Jenkins instance
@@ -116,12 +115,6 @@ You can configure this jenkins instance as you wish, if so please change:
 
 * local/configs/jenkins.yaml using the [JCasC](https://jenkins.io/projects/jcasc/)
 * local/configs/plugins.txt
-
-
-## What's next?
-
-- Be able to programmatically run functional tests.
-
 
 ## Further details
 

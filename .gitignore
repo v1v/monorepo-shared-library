@@ -1,8 +1,6 @@
-build
-.gradle
+target
 agent.jar
 local.*
 local/configs/key
 local/configs/user
-pom.xml
 target/
